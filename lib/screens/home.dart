@@ -19,10 +19,10 @@ class _HomeScreenState extends State<HomeScreen> {
 
   List pages = [
     // HomeScreen(),
-    const FirstScreen(),
-    const ProfileScreen(),
-    const ContactScreen(),
-    const LoginScreen(),
+    const FirstScreen(),// index_ = 0
+    const ProfileScreen(),// index_ = 1
+    const ContactScreen(),// index_ = 2
+    const LoginScreen(),// index_ = 3
   ];
 
   @override
@@ -119,7 +119,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        currentIndex: 0,
+        currentIndex: index_,
         items: const [
           BottomNavigationBarItem(
               icon: Icon(Icons.home),
@@ -144,6 +144,7 @@ class _HomeScreenState extends State<HomeScreen> {
           });
           print(index);
         },
+        
       ),
     );
   }
