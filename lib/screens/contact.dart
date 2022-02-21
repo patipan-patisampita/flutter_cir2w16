@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CntactScreen extends StatelessWidget {
+  static String id = '/contact';
   const CntactScreen({ Key? key }) : super(key: key);
 
   @override
