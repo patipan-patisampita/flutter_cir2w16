@@ -6,8 +6,13 @@ class ContactScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
+    return Scaffold(
+       appBar: AppBar(
+        title: const Text("Flutter App"),
+        centerTitle: true,
+        backgroundColor: Colors.purple,
+      ),
+      body: const Center(
         child: Text("Contact Screen"),
       ),
     );

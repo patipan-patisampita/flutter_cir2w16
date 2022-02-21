@@ -7,8 +7,13 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
+    return Scaffold(
+       appBar: AppBar(
+        title: const Text("Flutter App"),
+        centerTitle: true,
+        backgroundColor: Colors.teal,
+      ),
+      body: const Center(
         child: Text("Profile Screen"),
       ),
     );

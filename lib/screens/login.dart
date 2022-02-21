@@ -6,8 +6,13 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
+    return Scaffold(
+       appBar: AppBar(
+        title: const Text("Flutter App"),
+        centerTitle: true,
+        backgroundColor: Colors.red,
+      ),
+      body: const Center(
         child: Text("Login Screen"),
       ),
     );

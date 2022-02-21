@@ -28,11 +28,11 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Flutter App"),
-        centerTitle: true,
-        backgroundColor: Colors.indigo,
-      ),
+      // appBar: AppBar(
+      //   title: const Text("Flutter App"),
+      //   centerTitle: true,
+      //   backgroundColor: Colors.indigo,
+      // ),
       body: pages[index_],
       drawer: Drawer(
         child: ListView(
