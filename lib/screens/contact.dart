@@ -8,7 +8,7 @@ class ContactScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
        appBar: AppBar(
-        title: const Text("Flutter App"),
+        title: const Text("ติดต่อเรา"),
         centerTitle: true,
         backgroundColor: Colors.purple,
       ),

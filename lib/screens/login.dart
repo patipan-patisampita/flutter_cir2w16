@@ -8,7 +8,7 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
        appBar: AppBar(
-        title: const Text("Flutter App"),
+        title: const Text("เข้าสู่ระบบ"),
         centerTitle: true,
         backgroundColor: Colors.red,
       ),
