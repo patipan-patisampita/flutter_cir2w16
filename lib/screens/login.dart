@@ -37,6 +37,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   }
                   return null;
                 },
+                onSaved: (value){
+                  print("Name field is Saved");
+                },
                 controller: nameController,
                 decoration: const InputDecoration(
                   labelText: "Name",
@@ -50,6 +53,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   }
                   return null;
                 },
+                 onSaved: (value){
+                  print("Password field is Saved");
+                },
                 controller: passwordController,
                 decoration: const InputDecoration(
                   labelText: "Password",
@@ -59,6 +65,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ElevatedButton(
                   onPressed: () {
                    if(_formkey.currentState!.validate()==true){
+                     _formkey.currentState!.save();
                      print("Form Submitted Successfully");
                    }
                     
