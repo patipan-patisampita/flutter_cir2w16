@@ -1,12 +1,29 @@
 import 'package:flutter/material.dart';
 
 import 'contact.dart';
+import 'first_screen.dart';
+import 'login.dart';
 import 'profile.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   static String id = '/home';
 
-  const HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({Key? key}) : super(key: key); //1.create Constructor
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState(); //2.create state
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  int index_ = 0;
+
+  List pages = [
+    // HomeScreen(),
+    const FirstScreen(),
+    const ProfileScreen(),
+    const ContactScreen(),
+    const LoginScreen(),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -16,9 +33,7 @@ class HomeScreen extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.indigo,
       ),
-      body: const Center(
-        child: Text("MyApp"),
-      ),
+      body: pages[index_],
       drawer: Drawer(
         child: ListView(
           children: [
@@ -31,54 +46,103 @@ class HomeScreen extends StatelessWidget {
                 ),
                 currentAccountPicture: CircleAvatar(
                   // backgroundColor: Colors.amber,
-                  backgroundImage: NetworkImage("https://upload.wikimedia.org/wikipedia/commons/1/18/Mark_Zuckerberg_F8_2019_Keynote_%2832830578717%29_%28cropped%29.jpg"),
+                  backgroundImage: NetworkImage(
+                      "https://upload.wikimedia.org/wikipedia/commons/1/18/Mark_Zuckerberg_F8_2019_Keynote_%2832830578717%29_%28cropped%29.jpg"),
                 ),
               ),
             ),
             ListTile(
-              title: const Text("Home",style: TextStyle(color: Colors.indigo,fontSize: 15)),
-              leading: const Icon(Icons.home,color: Colors.indigo,size: 30,),
-              onTap: (){
+              title: const Text("Home",
+                  style: TextStyle(color: Colors.indigo, fontSize: 15)),
+              leading: const Icon(
+                Icons.home,
+                color: Colors.indigo,
+                size: 30,
+              ),
+              onTap: () {
                 Navigator.pop(context);
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const HomeScreen()));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const HomeScreen()));
               },
             ),
             ListTile(
-              title: const Text("Profile",style: TextStyle(color: Colors.indigo,fontSize: 15)),
-              leading: const Icon(Icons.manage_accounts,color: Colors.indigo,size: 30,),
-              onTap: (){
+              title: const Text("Profile",
+                  style: TextStyle(color: Colors.indigo, fontSize: 15)),
+              leading: const Icon(
+                Icons.manage_accounts,
+                color: Colors.indigo,
+                size: 30,
+              ),
+              onTap: () {
                 Navigator.pop(context);
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const ProfileScreen()));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const ProfileScreen()));
               },
             ),
             ListTile(
-              title: const Text("Contact",style: TextStyle(color: Colors.indigo,fontSize: 15)),
-              leading: const Icon(Icons.contact_page,color: Colors.indigo,size: 30,),
-              onTap: (){
+              title: const Text("Contact",
+                  style: TextStyle(color: Colors.indigo, fontSize: 15)),
+              leading: const Icon(
+                Icons.contact_page,
+                color: Colors.indigo,
+                size: 30,
+              ),
+              onTap: () {
                 Navigator.pop(context);
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const CntactScreen()));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const ContactScreen()));
               },
             ),
             ListTile(
-              title: const Text("First",style: TextStyle(color: Colors.indigo,fontSize: 15)),
-              leading: const Icon(Icons.call,color: Colors.indigo,size: 30,),
-              onTap: (){
+              title: const Text("First",
+                  style: TextStyle(color: Colors.indigo, fontSize: 15)),
+              leading: const Icon(
+                Icons.call,
+                color: Colors.indigo,
+                size: 30,
+              ),
+              onTap: () {
                 Navigator.pop(context);
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const CntactScreen()));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const FirstScreen()));
               },
             ),
           ],
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home),label: "Home",backgroundColor: Colors.indigo),
-          BottomNavigationBarItem(icon: Icon(Icons.manage_accounts),label: "Profile",backgroundColor: Colors.teal),
-          BottomNavigationBarItem(icon: Icon(Icons.contact_page),label: "Contact",backgroundColor: Colors.purple),
-          BottomNavigationBarItem(icon: Icon(Icons.call),label: "First",backgroundColor: Colors.red),
+        currentIndex: 0,
+        items: const [
+          BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: "Home",
+              backgroundColor: Colors.indigo),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.manage_accounts),
+              label: "Profile",
+              backgroundColor: Colors.teal),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.contact_page),
+              label: "Contact",
+              backgroundColor: Colors.purple),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.login),
+              label: "Login",
+              backgroundColor: Colors.red),
         ],
-        onTap: (index){
-
+        onTap: (index) {
+          setState(() {
+            index_ = index;
+          });
+          print(index);
         },
       ),
     );

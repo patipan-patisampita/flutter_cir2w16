@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-class CntactScreen extends StatelessWidget {
+class ContactScreen extends StatelessWidget {
   static String id = '/contact';
-  const CntactScreen({ Key? key }) : super(key: key);
+  const ContactScreen({ Key? key }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

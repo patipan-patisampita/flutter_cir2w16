@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'screens/contact.dart';
 import 'screens/first_screen.dart';
 import 'screens/home.dart';
+import 'screens/login.dart';
 import 'screens/profile.dart';
 
 void main() {
@@ -19,10 +20,11 @@ class MyApp extends StatelessWidget {
       //home: HomeScreen()
       initialRoute: '/',
       routes: {
-        '/': (context) => HomeScreen(),
-        FirstScreen.id: (context) => FirstScreen(),
-        CntactScreen.id: (context) => CntactScreen(),
-        ProfileScreen.id: (context) => ProfileScreen(),
+        '/': (context) => const HomeScreen(),
+        FirstScreen.id: (context) => const FirstScreen(),
+        ContactScreen.id: (context) => const ContactScreen(),
+        ProfileScreen.id: (context) => const ProfileScreen(),
+        LoginScreen.id: (context) => const LoginScreen(),
       },
     );
   }
