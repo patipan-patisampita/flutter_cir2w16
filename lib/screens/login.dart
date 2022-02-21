@@ -48,7 +48,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   prefixIcon: Icon(Icons.person),
                   border: OutlineInputBorder(),
                 ),
-                keyboardType: TextInputType.number,
+                keyboardType: TextInputType.text,
+                maxLength: 15,
               ),
               const SizedBox(height: 20),
               TextFormField(
@@ -68,11 +69,24 @@ class _LoginScreenState extends State<LoginScreen> {
                   prefixIcon: Icon(Icons.password),
                   helperText: "Password > 3 characters",
                 ),
+                obscureText: true,
               ),
               ElevatedButton(
                   onPressed: () {
                    if(_formkey.currentState!.validate()==true){
                      _formkey.currentState!.save();
+                     showDialog(context: context, builder: (context)=>AlertDialog(
+                       title: Text("Thank you"),
+                       content: Text("Form Submitted Successfully"),
+                      actions: [
+                        ElevatedButton(onPressed: () {
+                          Navigator.pop(context);
+                        }, child: Text("Okay"))
+                      ],
+                      backgroundColor: Colors.indigo,
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                     ));
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Form Submitted Successfully")));
                      print("Form Submitted Successfully");
                    }
                     
