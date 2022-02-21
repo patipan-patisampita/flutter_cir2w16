@@ -43,9 +43,14 @@ class _LoginScreenState extends State<LoginScreen> {
                 controller: nameController,
                 decoration: const InputDecoration(
                   labelText: "Name",
+                  // border: OutlineInputBorder(),
+                  hintText: "Write your full name",
+                  prefixIcon: Icon(Icons.person),
                   border: OutlineInputBorder(),
                 ),
+                keyboardType: TextInputType.number,
               ),
+              const SizedBox(height: 20),
               TextFormField(
                 validator: (value) {
                   if(value!.length<3 ){
@@ -60,6 +65,8 @@ class _LoginScreenState extends State<LoginScreen> {
                 decoration: const InputDecoration(
                   labelText: "Password",
                   border: OutlineInputBorder(),
+                  prefixIcon: Icon(Icons.password),
+                  helperText: "Password > 3 characters",
                 ),
               ),
               ElevatedButton(
