@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'contact.dart';
 import 'first_screen.dart';
+import 'future_screen.dart';
 import 'login.dart';
 import 'profile.dart';
 
@@ -23,6 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
     const ProfileScreen(),// index_ = 1
     const ContactScreen(),// index_ = 2
     const LoginScreen(),// index_ = 3
+    const FutureScreen(),//index_ = 4
   ];
 
   @override
@@ -115,6 +117,22 @@ class _HomeScreenState extends State<HomeScreen> {
                         builder: (context) => const FirstScreen()));
               },
             ),
+            ListTile(
+              title: const Text("First",
+                  style: TextStyle(color: Colors.indigo, fontSize: 15)),
+              leading: const Icon(
+                Icons.call,
+                color: Colors.indigo,
+                size: 30,
+              ),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const FutureScreen()));
+              },
+            ),
           ],
         ),
       ),
@@ -137,6 +155,10 @@ class _HomeScreenState extends State<HomeScreen> {
               icon: Icon(Icons.login),
               label: "Login",
               backgroundColor: Colors.red),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.abc),
+              label: "Future",
+              backgroundColor: Colors.green),
         ],
         onTap: (index) {
           setState(() {
