@@ -15,9 +15,19 @@ class StreamScreen extends StatelessWidget {
     //2.Adding data to the stream
     for (int i = 0; i < 4; i++) {
       streamController.add("You got a message");
-      await Future.delayed(Duration(seconds: 2),() {
-        print("Read");
-      },);
+      await Future.delayed(
+        Duration(seconds: 2),
+        () {
+          print("Read");
+        },
+      );
+    }
+  }
+
+  Stream myStream() async* {
+    for (var i = 0; i < 10; i++) {
+      yield i;
+      await Future.delayed(Duration(seconds: 2));
     }
   }
 
@@ -29,11 +39,27 @@ class StreamScreen extends StatelessWidget {
         backgroundColor: Colors.pink,
       ),
       body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            streamData();
-          },
-          child: Text("War of Russian and Ukrain"),
+        child: Column(
+          children: [
+            ElevatedButton(
+              onPressed: () {
+                streamData();
+              },
+              child: Text("War of Russian and Ukrain"),
+            ),
+            SizedBox(height: 20),
+            StreamBuilder(
+              stream: myStream(),
+              builder: (_, AsyncSnapshot snapshot) {
+                if (snapshot.hasData) {
+                  return Text(snapshot.data.toString(),style: TextStyle(fontSize: 45,color: Colors.pink));
+                }
+                return Center(
+                  child: CircularProgressIndicator(),
+                );
+              },
+            )
+          ],
         ),
       ),
     );
