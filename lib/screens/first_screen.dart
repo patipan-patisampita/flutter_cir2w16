@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'contact.dart';
+import 'future_screen.dart';
 import 'home.dart';
 import 'profile.dart';
 
@@ -22,8 +23,71 @@ class _FirstScreenState extends State<FirstScreen> {
         backgroundColor: Colors.indigo,
       ),
       body: GridView.count(
-        crossAxisCount: 2,
+        crossAxisCount: 3,
         children: [
+          Card(
+            margin: EdgeInsets.all(12),
+            child: InkWell(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const HomeScreen()));
+              },
+              splashColor: Colors.blue,
+              child: Center(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(Icons.home, size: 50, color: Colors.blueAccent),
+                    Text("Home", style: TextStyle(fontSize: 17.0)),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          Card(
+            margin: EdgeInsets.all(12),
+            child: InkWell(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const ContactScreen()));
+              },
+              splashColor: Colors.blue,
+              child: Center(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(Icons.new_releases, size: 50, color: Colors.redAccent),
+                    Text("Contact", style: TextStyle(fontSize: 17.0)),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          Card(
+            margin: EdgeInsets.all(12),
+            child: InkWell(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const ProfileScreen()));
+              },
+              splashColor: Colors.blue,
+              child: Center(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(Icons.military_tech, size: 50, color: Colors.green),
+                    Text("Profile", style: TextStyle(fontSize: 17.0)),
+                  ],
+                ),
+              ),
+            ),
+          ),
           Card(
             margin: EdgeInsets.all(12),
             child: InkWell(
@@ -33,13 +97,13 @@ class _FirstScreenState extends State<FirstScreen> {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Icon(Icons.home,size: 50,color: Colors.blueAccent),
-                    Text("Home",style: TextStyle(fontSize: 17.0)),
+                    Icon(Icons.android, size: 50, color: Colors.blueGrey),
+                    Text("Texhnology", style: TextStyle(fontSize: 17.0)),
                   ],
                 ),
               ),
             ),
-          )
+          ),
         ],
       ),
       drawer: Drawer(
