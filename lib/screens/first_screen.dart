@@ -4,10 +4,15 @@ import 'contact.dart';
 import 'home.dart';
 import 'profile.dart';
 
-class FirstScreen extends StatelessWidget {
+class FirstScreen extends StatefulWidget {
   static String id = '/first';
   const FirstScreen({Key? key}) : super(key: key);
 
+  @override
+  State<FirstScreen> createState() => _FirstScreenState();
+}
+
+class _FirstScreenState extends State<FirstScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,8 +21,26 @@ class FirstScreen extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.indigo,
       ),
-      body: const Center(
-        child: Text("First Screen"),
+      body: GridView.count(
+        crossAxisCount: 2,
+        children: [
+          Card(
+            margin: EdgeInsets.all(12),
+            child: InkWell(
+              onTap: () {},
+              splashColor: Colors.blue,
+              child: Center(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(Icons.home,size: 50,color: Colors.blueAccent),
+                    Text("Home",style: TextStyle(fontSize: 17.0)),
+                  ],
+                ),
+              ),
+            ),
+          )
+        ],
       ),
       drawer: Drawer(
         child: ListView(

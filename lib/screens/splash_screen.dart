@@ -28,10 +28,13 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.network(
-              "https://docs.flutter.dev/assets/images/dash/Dashatars.png",
-              height: 200,
-              width: double.infinity,
+            Text("Hi Putin",style: TextStyle(color: Colors.white,fontSize: 55,fontWeight: FontWeight.bold)),
+            Center(
+              child: Image.network(
+                "https://docs.flutter.dev/assets/images/dash/Dashatars.png",
+                height: 200,
+                width: double.infinity,
+              ),
             ),
             SizedBox(height: 20),
             CircularProgressIndicator.adaptive(
