@@ -5,6 +5,7 @@ import 'first_screen.dart';
 import 'future_screen.dart';
 import 'login.dart';
 import 'profile.dart';
+import 'stream_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   static String id = '/home';
@@ -25,6 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
     const ContactScreen(),// index_ = 2
     const LoginScreen(),// index_ = 3
     const FutureScreen(),//index_ = 4
+     StreamScreen(),//index_ = 5
   ];
 
   @override
@@ -159,6 +161,10 @@ class _HomeScreenState extends State<HomeScreen> {
               icon: Icon(Icons.abc),
               label: "Future",
               backgroundColor: Colors.green),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.stream),
+              label: "Stream",
+              backgroundColor: Colors.pink),
         ],
         onTap: (index) {
           setState(() {

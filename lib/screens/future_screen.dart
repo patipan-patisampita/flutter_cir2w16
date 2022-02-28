@@ -27,15 +27,26 @@ class _FutureScreenState extends State<FutureScreen> {
   }
 
   Future<void> getAsynncData() async {
-    final UserId = Future.delayed(Duration(seconds: 3), () {
-      print("Volodymyr Zelenskyy Id - 1");
-      return "Volodymyr Zelenskyy";
-    });
+    try {
+      final userId = await Future.delayed(Duration(seconds: 3), () {
+        print("Volodymyr Zelenskyy Id - 1");
+        return "Volodymyr Zelenskyy Id";
+      });
 
-    Future.delayed(Duration(seconds: 2), () {
-      print("Hey Vlademir Putin, Hi $UserId");
-    });
+      await Future.delayed(Duration(seconds: 2), () {
+        print("Hey Vlademir Putin, Hi $userId");
+      });
+    } catch (e) {
+      print(e);
+    }
     print("War of Russian adn Ukrain");
+  }
+
+  Future<String> getUserName() async {
+    final user = await Future.delayed(Duration(seconds: 2), () {
+      return "Hi Putin";
+    });
+    return user;
   }
 
   @override
@@ -54,10 +65,23 @@ class _FutureScreenState extends State<FutureScreen> {
             ),
             SizedBox(height: 10),
             ElevatedButton(
-              onPressed: () {
-                getAsynncData();
+              onPressed: () async {
+                await getAsynncData();
+                print("Second function");
               },
               child: Text("Click War"),
+            ),
+            SizedBox(height: 20),
+            FutureBuilder(
+              future: getUserName(),
+              builder: (_, AsyncSnapshot snapshot) {
+                if(snapshot.hasData){
+                  return Text(snapshot.data);
+                }
+                return Center(
+                  child: CircularProgressIndicator(),
+                );
+              },
             ),
           ],
         ),
