@@ -17,7 +17,7 @@ class _FutureScreenState extends State<FutureScreen> {
       (value) {
         Future.delayed(const Duration(seconds: 2), () {
           print("Hey Vlademir Putin Id - 2");
-        }).catchError((error){
+        }).catchError((error) {
           print(error);
         });
       },
@@ -26,17 +26,40 @@ class _FutureScreenState extends State<FutureScreen> {
     print("Random Line of code");
   }
 
+  Future<void> getAsynncData() async {
+    final UserId = Future.delayed(Duration(seconds: 3), () {
+      print("Volodymyr Zelenskyy Id - 1");
+      return "Volodymyr Zelenskyy";
+    });
+
+    Future.delayed(Duration(seconds: 2), () {
+      print("Hey Vlademir Putin, Hi $UserId");
+    });
+    print("War of Russian adn Ukrain");
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar:
           AppBar(title: Text("Future Network"), backgroundColor: Colors.green),
       body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            getData();
-          },
-          child: Text("Click here"),
+        child: Column(
+          children: [
+            ElevatedButton(
+              onPressed: () {
+                getData();
+              },
+              child: Text("Click here"),
+            ),
+            SizedBox(height: 10),
+            ElevatedButton(
+              onPressed: () {
+                getAsynncData();
+              },
+              child: Text("Click War"),
+            ),
+          ],
         ),
       ),
     );
